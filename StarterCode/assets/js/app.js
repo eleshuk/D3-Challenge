@@ -142,14 +142,13 @@ d3.csv("assets/data/data.csv").then(function (healthData, err) {
     .call(leftAxis);
 
   // append initial circles
-  var circles = chartGroup.selectAll("circle")
+  chartGroup.selectAll("circle")
     .data(healthData)
     .enter()
     .append("circle")
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.obesity))
-    .attr("r", 10)
-    .attr("stroke", "black")
+    .attr("r", 12)
     .attr("color", "blue")
     .attr("opacity", "1")
     .classed("stateCircle", true);
@@ -163,7 +162,8 @@ d3.csv("assets/data/data.csv").then(function (healthData, err) {
     .attr("color", "white")
     .attr("text-anchor", "middle")
     .attr("font-size", 10)
-    .text(d=>d.abbr);
+    .text(d=>d.abbr)
+    .classed("stateText", true);
 
   // // Create group for two x-axis labels
   var labelsGroup = chartGroup.append("g")
