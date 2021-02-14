@@ -152,14 +152,10 @@ d3.csv("assets/data/data.csv").then(function (healthData, err) {
     .attr("stroke", "black")
     .attr("fill", "blue")
     .attr("opacity", "0.75");
-
-  // Add abbr to circles
-  // circlesText = circlesGroup.append("rect")
-  //   .text(d => d.abbr)
-  //   .attr("dx", d => xLinearScale(d[chosenXAxis]))
-  //   .attr("dy", d => yLinearScale(d[chosenYAxis]) + 5)
-  //   .classed("stateText", true);
-
+  
+  var circlesText = circlesGroup.append("text")
+    .text(d=>d.abbr);
+  
 
   // Create group for two x-axis labels
   var labelsGroup = chartGroup.append("g")
@@ -195,8 +191,6 @@ d3.csv("assets/data/data.csv").then(function (healthData, err) {
     .classed("axis-text", true)
     .text("Obese (%)");
 
-
-
   // updateToolTip function above csv import
   var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
 
@@ -225,8 +219,6 @@ d3.csv("assets/data/data.csv").then(function (healthData, err) {
         // updates tooltips with new info
         circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
 
-        // circlesText = renderXText(circlesText, xLinearScale, chosenXAxis);
-
         // changes classes to change bold text
         if (chosenXAxis === "poverty") {
           ageLabel
@@ -239,8 +231,7 @@ d3.csv("assets/data/data.csv").then(function (healthData, err) {
           //   .classed("active", false)
           //   .classed("inactive", true);
         }
-        // else (chosenXAxis === "age") {
-        else {
+        else if (chosenXAxis === "age") {
           ageLabel
             .classed("active", true)
             .classed("inactive", false);
