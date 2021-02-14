@@ -165,38 +165,9 @@ d3.csv("assets/data/data.csv").then(function (healthData, err) {
     .attr("font-size", 10)
     .text(d=>d.abbr);
 
-  // Add abbr to circles
-  // circlesText = circlesGroup.append("rect")
-  //   .text(d => d.abbr)
-  //   .attr("dx", d => xLinearScale(d[chosenXAxis]))
-  //   .attr("dy", d => yLinearScale(d[chosenYAxis]) + 5)
-  //   .classed("stateText", true);
-
-
   // // Create group for two x-axis labels
   var labelsGroup = chartGroup.append("g")
     .attr("transform", `translate(${width / 2}, ${height + 20})`);
-
-  // var povertyLabel = labelsGroup.append("text")
-  //   .attr("x", 0)
-  //   .attr("y", 20)
-  //   .attr("value", "poverty") // value to grab for event listener
-  //   .classed("active", true)
-  //   .text("In Poverty (%)");
-
-  // var ageLabel = labelsGroup.append("text")
-  //   .attr("x", 0)
-  //   .attr("y", 40)
-  //   .attr("value", "age") // value to grab for event listener
-  //   .classed("inactive", true)
-  //   .text("Age (Median)");
-
-    // var incomeLabel = labelsGroup.append("text")
-    // .attr("x", 0)
-    // .attr("y", 40)
-    // .attr("value", "income") // value to grab for event listener
-    // .classed("inactive", true)
-    // .text("Household Income (Median)");
 
    // append x axis
   labelsGroup.append("text")
@@ -216,72 +187,6 @@ d3.csv("assets/data/data.csv").then(function (healthData, err) {
     .classed("axis-text", true)
     .text("Obesity (%)");
 
-
-
-  // updateToolTip function above csv import
-  // var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
-
-  // x axis labels event listener
-  // labelsGroup.selectAll("text")
-  //   .on("click", function () {
-  //     // get value of selection
-  //     var value = d3.select(this).attr("value");
-  //     if (value !== chosenXAxis) {
-
-  //       // replaces chosenXAxis with value
-  //       chosenXAxis = value;
-
-  //       // console.log(chosenXAxis)
-
-  //       // functions here found above csv import
-  //       // updates x scale for new data
-  //       xLinearScale = xScale(healthData, chosenXAxis);
-
-  //       // updates x axis with transition
-  //       xAxis = renderAxes(xLinearScale, xAxis);
-
-  //       // updates circles with new x values
-  //       circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis);
-
-  //       // updates tooltips with new info
-  //       circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
-
-  //       // circlesText = renderXText(circlesText, xLinearScale, chosenXAxis);
-
-  //       // changes classes to change bold text
-  //       if (chosenXAxis === "poverty") {
-  //         ageLabel
-  //           .classed("active", true)
-  //           .classed("inactive", false);
-  //         povertyLabel
-  //           .classed("active", false)
-  //           .classed("inactive", true);
-  //         // incomeLabel
-  //         //   .classed("active", false)
-  //         //   .classed("inactive", true);
-  //       }
-  //       // else (chosenXAxis === "age") {
-  //       else {
-  //         ageLabel
-  //           .classed("active", true)
-  //           .classed("inactive", false);
-  //         povertyLabel
-  //           .classed("active", false)
-  //           .classed("inactive", true);
-  //         // incomeLabel
-  //         //   .classed("active", false)
-  //         //   .classed("inactive", true);
-  //       }
-  //       // else {
-  //       //   incomeLabel
-  //       //     .classed("active", false)
-  //       //     .classed("inactive", true);
-  //       //     incomeLabel
-  //       //     .classed("active", true)
-  //       //     .classed("inactive", false);
-  //       // }
-  //     }
-  //   });
 }).catch(function (error) {
   console.log(error);
 });
