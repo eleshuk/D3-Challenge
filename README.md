@@ -5,4 +5,4 @@ The editor wants to run a series of feature stories about the health risks facin
 
 Using D3 techniques, I created a scatter plot between two of the data variables, Poverty vs. Obesity. My plot represents each state with circle elements. I then added a section with my observations about the graph's trend.
 
-![](Images/d3_times.PNG)
+![](Images/d3_times_1.PNG)
